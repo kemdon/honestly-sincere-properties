@@ -1,0 +1,179 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const characters = [
+  {
+    no: '01',
+    title: '斜坡與石階',
+    body: '西營盤不少街道依山而建，第一街、第二街、第三街一帶高低起伏，石階小巷連接不同高度的樓宇。看樓時，往返交通與街道坡度是實際要考慮的事。',
+  },
+  {
+    no: '02',
+    title: '舊樓與新樓並排',
+    body: '戰前後期的唐樓、六七十年代的舊式大廈，與較新落成的高層住宅，往往就在同一條街上。樓齡、單位間隔、升降機與管理狀況差異很大，需要逐個看清。',
+  },
+  {
+    no: '03',
+    title: '街市與街坊小店',
+    body: '區內有街市、茶餐廳、麵包店與各式老舖，日常生活配套密集。這也是不少人選擇留在港島西區生活的原因之一。',
+  },
+];
+
+const practical = [
+  { title: '先選路段', body: '第三街、高街、正街、皇后大道西一帶的樓宇類型與街道環境各有不同，宜先想清楚自己的生活動線。' },
+  { title: '留意樓齡與間隔', body: '同區樓齡跨度很大，實用面積、樓底、窗戶朝向與有無升降機，會直接影響居住感受。' },
+  { title: '親身走一次', body: '由港鐵站走到樓下、由樓下走到街市，早晚各走一次，比只看相片更能判斷是否合適。' },
+];
+---
+
+<Layout
+  title="西營盤地區 · 港島西區找樓參考"
+  description="真誠地產代理有限公司位於香港西營盤第三街。介紹西營盤的街道特徵、樓宇類型、生活配套與交通，作為買賣及租賃找樓時的參考。"
+  path="/district"
+  ogImage="/images/street-shops.webp"
+>
+  <SiteHeader current="/district" />
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__media">
+        <img src="/images/street-shops.webp" alt="" width="2496" height="1664" decoding="async" />
+      </div>
+      <span class="page-hero__ghost" aria-hidden="true">03</span>
+      <div class="container page-hero__inner">
+        <p class="breadcrumb"><a href="/">首頁</a>　/　地區</p>
+        <span class="eyebrow eyebrow--light" style="margin-top:26px;">The Neighbourhood</span>
+        <h1>西營盤</h1>
+        <p>介乎上環與堅尼地城之間，屬香港中西區。舊唐樓、石階、街市與新高層住宅擠在同一片斜坡上——這是我們門市所在，也是找樓時最實際的背景。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split split--even">
+        <div class="reveal">
+          <span class="eyebrow">About the area</span>
+          <div class="prose-block" style="margin-top:26px;">
+            <h2>一條街，可以有很多種樓</h2>
+            <p>西營盤是港島其中一個新舊交錯得最明顯的社區。沿第三街向上走，會經過貼著斜坡的舊樓、舖面細小的老店，轉角又可能是近年的高層住宅。</p>
+            <p>對找樓的人來說，這種混雜既是吸引力，也是需要留神的地方：<strong>同一個路段，樓齡、間隔、採光、管理與噪音可以完全不同</strong>。區名只能說明大概位置，真正要判斷的，始終是那一幢樓、那一個單位。</p>
+            <p>以下整理的，是這區找樓時普遍會遇到的情況，屬地區觀察，並非個別樓盤或成交資料。</p>
+          </div>
+          <a class="text-link" href="/contact" style="margin-top:26px;">想找這區的單位？ <span aria-hidden="true">→</span></a>
+        </div>
+        <figure class="figure figure--portrait reveal" style="margin:0;">
+          <img src="/images/stone-steps.webp" alt="西營盤的石階斜巷，兩旁是斑駁舊牆、盆栽與金屬欄杆" width="1728" height="2304" loading="lazy" decoding="async" />
+          <figcaption class="figure__caption">西營盤 · 石階小巷</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container">
+        <div style="margin-bottom:52px;">
+          <div class="section-head__top"><span class="num">01</span><span class="eyebrow">Street character</span></div>
+          <h2 class="section-title" style="margin-top:20px;">街道與日常</h2>
+        </div>
+        <div class="value-grid">
+          {characters.map((item) => (
+            <div class="value-item reveal">
+              <span class="value-item__num">{item.no}</span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="district-band">
+      <img src="/images/harbour-west.webp" alt="傍晚時分香港西部海旁，山巒、住宅樓群與海面上的船隻" width="2731" height="1536" loading="lazy" decoding="async" />
+      <div class="container district-band__inner">
+        <div class="district-band__text">
+          <span class="eyebrow eyebrow--light">Down to the waterfront</span>
+          <h2>由斜坡走到海旁</h2>
+          <p>由第三街往下，穿過德輔道西一帶便是港島西的海旁。山、樓與海在這裡叠在一起，也是西營盤與港島其他舊區最不一樣的畫面。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split">
+        <div class="reveal">
+          <div class="section-head__top"><span class="num">02</span><span class="eyebrow">Location &amp; transport</span></div>
+          <h2 class="section-title" style="margin-top:22px;">位置與交通</h2>
+          <p class="lede" style="margin-top:18px; max-width:440px;">以下為公開的地區與地址資料，方便你規劃前來門市或看樓的路線。</p>
+          <a class="btn btn--outline-dark" href="/contact" style="margin-top:30px;">查看我們的地址 <span class="arrow">→</span></a>
+        </div>
+        <div class="reveal">
+          <dl class="detail-list">
+            <div class="detail-list__row"><dt>所屬地區</dt><dd>香港中西區 · 港島西<small>Sai Ying Pun, Central and Western District</small></dd></div>
+            <div class="detail-list__row"><dt>門市地址</dt><dd>西營盤第三街 83 號康和花園地下 6 號鋪<small>Shop 6, G/F, Goodwill Garden, No. 83 Third Street, Sai Ying Pun, Hong Kong</small></dd></div>
+            <div class="detail-list__row"><dt>鐵路</dt><dd>港鐵港島綫 · 西營盤站<small>MTR Island Line — Sai Ying Pun Station</small></dd></div>
+            <div class="detail-list__row"><dt>鄰近地區</dt><dd>上環、堅尼地城、薄扶林、石塘咀</dd></div>
+            <div class="detail-list__row"><dt>區內主要街道</dt><dd>第三街、第一街、第二街、高街、正街、皇后大道西、德輔道西</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--warm section--tight">
+      <div class="container">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:28px; flex-wrap:wrap; margin-bottom:42px;">
+          <div>
+            <div class="section-head__top"><span class="num">03</span><span class="eyebrow">Before viewing</span></div>
+            <h2 class="section-title" style="margin-top:20px;">找樓時的幾個實際考慮</h2>
+          </div>
+          <p class="lede" style="max-width:360px;">以上為一般地區觀察，僅供參考；個別物業情況請以實地視察及正式文件為準。</p>
+        </div>
+        <div class="value-grid">
+          {practical.map((item, i) => (
+            <div class="value-item reveal">
+              <span class="value-item__num">0{i + 1}</span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <span class="eyebrow">Street impressions</span>
+        <h2 class="section-title" style="margin:18px 0 36px;">街區印象</h2>
+        <div class="gallery">
+          <figure class="figure gallery__a" style="aspect-ratio:16/10;">
+            <img src="/images/hero-street.webp" alt="清晨西營盤斜坡街道，兩旁舊唐樓與店舖鐵閘" width="2731" height="1536" loading="lazy" decoding="async" />
+          </figure>
+          <figure class="figure gallery__b" style="aspect-ratio:4/5;">
+            <img src="/images/door-detail.webp" alt="舊唐樓墨綠色木門與黃銅信箱口特寫" width="1728" height="2304" loading="lazy" decoding="async" />
+          </figure>
+          <figure class="figure gallery__c" style="aspect-ratio:4/5;">
+            <img src="/images/tower-facade.webp" alt="舊式住宅大廈外立面與密集窗戶" width="1728" height="2304" loading="lazy" decoding="async" />
+          </figure>
+          <figure class="figure gallery__d" style="aspect-ratio:16/9;">
+            <img src="/images/street-shops.webp" alt="舊唐樓轉角的綠色鐵窗、遮陽篷與捲閘" width="2496" height="1664" loading="lazy" decoding="async" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-band__inner">
+        <div>
+          <span class="eyebrow eyebrow--light">Looking nearby</span>
+          <h2>想在西營盤找個落腳點？</h2>
+          <p>說說你想住的路段與條件，我們按這區的實際情況陪你慢慢篩。</p>
+        </div>
+        <div class="cta-band__actions">
+          <a class="btn btn--gold" href="tel:+85294310299">致電 9431 0299 <span class="arrow">→</span></a>
+          <a class="btn btn--outline" href="/contact">查看聯絡資料</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</Layout>

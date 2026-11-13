@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<Layout title="找不到頁面" description="找不到這個頁面，請返回真誠地產代理有限公司網站首頁。" path="/404" noindex={true}>
+  <SiteHeader />
+  <main>
+    <section class="page-hero">
+      <span class="page-hero__ghost" aria-hidden="true">404</span>
+      <div class="container page-hero__inner">
+        <p class="breadcrumb"><a href="/">首頁</a>　/　找不到頁面</p>
+        <span class="eyebrow eyebrow--light" style="margin-top:26px;">Page not found</span>
+        <h1>這條街，似乎走錯了</h1>
+        <p>你要找的頁面不在這裡。可以返回首頁，或直接致電 9431 0299 查詢。</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:34px;">
+          <a class="btn btn--gold" href="/">返回首頁 <span class="arrow">→</span></a>
+          <a class="btn btn--outline" href="/contact">聯絡我們</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</Layout>

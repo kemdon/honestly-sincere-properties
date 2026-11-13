@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const faq = [
+  {
+    q: '網站可以看到盤源嗎？',
+    a: '本站不設即時盤源清單。物業資料、價錢與可供參觀時間會變動，請直接致電 9431 0299 或 9685 6656 查詢，我們會按你的條件說明當時可得的選擇。',
+  },
+  {
+    q: '可以預約睇樓嗎？',
+    a: '可以。先致電說明想看的單位、預算與可出席時間，我們會確認安排後再回覆。',
+  },
+  {
+    q: '想放盤，需要先準備甚麼？',
+    a: '先準備物業地址、樓齡或大概類型、面積、現況與你的期望即可；其餘資料可於電話中逐項確認。',
+  },
+  {
+    q: '門市辦公時間？',
+    a: '辦公時間請先致電確認，避免撲空。電話留言或直接聯絡代理陳小玲亦可。',
+  },
+];
+---
+
+<Layout
+  title="聯絡我們 · 西營盤第三街門市"
+  description="聯絡真誠地產代理有限公司：電話 9431 0299、代理陳小玲 Olivia Chan 9685 6656，地址香港西營盤第三街 83 號康和花園地下 6 號鋪。歡迎查詢買賣、租賃及放盤。"
+  path="/contact"
+  ogImage="/images/hero-street.webp"
+>
+  <SiteHeader current="/contact" />
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__media">
+        <img src="/images/hero-street.webp" alt="" width="2731" height="1536" decoding="async" />
+      </div>
+      <span class="page-hero__ghost" aria-hidden="true">05</span>
+      <div class="container page-hero__inner">
+        <p class="breadcrumb"><a href="/">首頁</a>　/　聯絡我們</p>
+        <span class="eyebrow eyebrow--light" style="margin-top:26px;">Get in touch</span>
+        <h1>聯絡我們</h1>
+        <p>買樓、租樓、放盤，或只是想問一句——直接打電話最快。門市就在西營盤第三街，路過也歡迎進來。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split split--even">
+        <div class="contact-panel reveal">
+          <span class="eyebrow">By phone</span>
+          <h2 style="margin-top:20px;">電話查詢</h2>
+          <p class="contact-panel__sub">兩組號碼均可直接接通，查詢時請說明想買、想租，還是想放盤。</p>
+          <a class="contact-phone" href="tel:+85294310299">
+            <span class="contact-phone__label">公司電話</span>
+            <span class="contact-phone__value">9431 0299</span>
+          </a>
+          <a class="contact-phone" href="tel:+85296856656">
+            <span class="contact-phone__label">陳小玲 Olivia Chan</span>
+            <span class="contact-phone__value">9685 6656</span>
+          </a>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:30px;">
+            <a class="btn btn--gold" href="tel:+85294310299">立即致電 <span class="arrow">→</span></a>
+            <a class="btn btn--outline-dark" href="/services">先看服務範圍</a>
+          </div>
+        </div>
+
+        <div class="address-card reveal">
+          <span class="eyebrow eyebrow--light">Visit us</span>
+          <h3>香港西營盤第三街 83 號<br />康和花園地下 6 號鋪</h3>
+          <p>門市設於第三街康和花園地下，位處西營盤核心街道，由港鐵西營盤站步行可達。來訪前建議先致電確認辦公時間。</p>
+          <p class="address-card__en">Shop 6 on Ground Floor, Goodwill Garden,<br />No. 83 Third Street, Sai Ying Pun, Hong Kong</p>
+          <div style="border-top:1px solid rgba(246,243,236,0.18); margin-top:28px; padding-top:24px; display:grid; gap:10px; font-size:0.86rem; color:rgba(246,243,236,0.72);">
+            <span>港鐵港島綫 · 西營盤站</span>
+            <span>香港中西區 · 港島西</span>
+            <span>地產代理牌照 C-094108-A000</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container split">
+        <div class="reveal">
+          <div class="section-head__top"><span class="num">01</span><span class="eyebrow">Before you call</span></div>
+          <h2 class="section-title" style="margin-top:22px;">先想好這幾件事，<br />通話會更順</h2>
+          <p class="lede" style="margin-top:20px; max-width:420px;">不用準備得很完整，但以下幾項先有個大概，我們比較快能對上你的情況。</p>
+          <figure class="figure figure--wide" style="margin-top:36px;">
+            <img src="/images/planning-desk.webp" alt="辦公桌上攤開的住宅平面圖、筆記本、眼鏡與門匙" width="2496" height="1664" loading="lazy" decoding="async" />
+          </figure>
+        </div>
+        <div class="reveal" style="padding-top:8px;">
+          <div class="numbered-steps">
+            <div class="numbered-steps__item"><div><h3>你想做甚麼</h3><p>買入、承租、出售、出租，還是純粹想問區內市況。</p></div></div>
+            <div class="numbered-steps__item"><div><h3>大概條件</h3><p>預算、面積、房數、心儀路段，以及希望何時入住或成交。</p></div></div>
+            <div class="numbered-steps__item"><div><h3>物業基本資料</h3><p>若為放盤，準備地址、樓宇類型、樓層、面積與現況即可。</p></div></div>
+            <div class="numbered-steps__item"><div><h3>方便聯絡的時間</h3><p>告訴我們何時方便通話或睇樓，方便安排回覆與預約。</p></div></div>
+          </div>
+          <a class="btn btn--ink" href="tel:+85294310299" style="margin-top:38px;">致電 9431 0299 <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split">
+        <div class="reveal">
+          <span class="eyebrow">Common questions</span>
+          <h2 class="section-title" style="margin:22px 0 18px;">常見問題</h2>
+          <p class="lede">以下是查詢時最常被問到的幾件事，先寫在這裡，電話裡就可以直接談重點。</p>
+          <figure class="figure figure--tall" style="margin-top:34px; max-width:340px;">
+            <img src="/images/door-detail.webp" alt="舊唐樓墨綠色木門、黃銅信箱口與摺疊鐵閘特寫" width="1728" height="2304" loading="lazy" decoding="async" />
+          </figure>
+        </div>
+        <div class="reveal">
+          <div style="border-top:1px solid var(--line);">
+            {faq.map((item, i) => (
+              <div style="border-bottom:1px solid var(--line); padding:26px 0;">
+                <div style="display:flex; gap:18px; align-items:baseline; margin-bottom:10px;">
+                  <span class="num">0{i + 1}</span>
+                  <h3 style="font-size:1.12rem; letter-spacing:0.05em;">{item.q}</h3>
+                </div>
+                <p style="color:var(--muted); font-size:0.92rem; line-height:1.95; padding-left:52px;">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-band__inner">
+        <div>
+          <span class="eyebrow eyebrow--light">One call is enough to start</span>
+          <h2>有甚麼想問，直接說</h2>
+          <p>真誠地產代理有限公司 · 地產代理牌照 C-094108-A000 · 香港西營盤第三街 83 號康和花園地下 6 號鋪</p>
+        </div>
+        <div class="cta-band__actions">
+          <a class="btn btn--gold" href="tel:+85294310299">9431 0299 <span class="arrow">→</span></a>
+          <a class="btn btn--outline" href="tel:+85296856656">陳小玲 9685 6656</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</Layout>

@@ -1,0 +1,56 @@
+---
+const nav = [
+  { label: '首頁', href: '/' },
+  { label: '服務', href: '/services' },
+  { label: '地區', href: '/district' },
+  { label: '關於我們', href: '/about' },
+  { label: '聯絡我們', href: '/contact' },
+];
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="/" aria-label="真誠地產代理有限公司　返回首頁">
+          <span class="brand__seal" aria-hidden="true">真</span>
+          <span class="brand__text">
+            <span class="brand__zh">真誠地產</span>
+            <span class="brand__en">Honestly Sincere Properties Ltd.</span>
+          </span>
+        </a>
+        <p>真誠地產代理有限公司，位於香港西營盤第三街康和花園地下。買賣、租賃、放盤，歡迎直接致電查詢。</p>
+      </div>
+
+      <div>
+        <p class="footer__title">網站導覽 / Sitemap</p>
+        <ul class="footer__list">
+          {nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer__title">聯絡 / Contact</p>
+        <ul class="footer__list">
+          <li><a href="tel:+85294310299"><strong>9431 0299</strong></a><span>　公司電話</span></li>
+          <li><a href="tel:+85296856656"><strong>9685 6656</strong></a><span>　陳小玲 Olivia Chan</span></li>
+          <li><span>西營盤第三街 83 號<br />康和花園地下 6 號鋪</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer__title">牌照 / Licence</p>
+        <ul class="footer__list">
+          <li><span>地產代理（公司）牌照<br /><strong>C-094108-A000</strong></span></li>
+          <li><span>代理牌照<br /><strong>E-458976</strong></span></li>
+          <li><span>HONESTLY SINCERE<br />PROPERTIES LIMITED</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 真誠地產代理有限公司 HONESTLY SINCERE PROPERTIES LIMITED　版權所有</span>
+      <span>網站內容僅供參考，不構成任何要約或物業資料保證；網站圖片為街區及室內氛圍示意，並非樓盤或公司現場實景。物業詳情請以正式文件及實地視察為準。</span>
+    </div>
+  </div>
+</footer>

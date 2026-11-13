@@ -1,0 +1,64 @@
+---
+export interface Props {
+  current?: string;
+}
+
+const { current = '' } = Astro.props;
+
+const nav = [
+  { label: '首頁', href: '/', en: 'Home' },
+  { label: '服務', href: '/services', en: 'Services' },
+  { label: '地區', href: '/district', en: 'District' },
+  { label: '關於我們', href: '/about', en: 'About' },
+  { label: '聯絡我們', href: '/contact', en: 'Contact' },
+];
+---
+
+<div class="utility">
+  <div class="container utility__inner">
+    <span>地產代理牌照號碼 <strong>C-094108-A000</strong></span>
+    <span>香港西營盤第三街 83 號康和花園地下 6 號鋪　·　<a href="tel:+85294310299">9431 0299</a></span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header__inner">
+    <a class="brand" href="/" aria-label="真誠地產代理有限公司　返回首頁">
+      <span class="brand__seal" aria-hidden="true">真</span>
+      <span class="brand__text">
+        <span class="brand__zh">真誠地產</span>
+        <span class="brand__en">Honestly Sincere Properties Ltd.</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" aria-label="主要導覽">
+      {nav.map((item) => (
+        <a href={item.href} aria-current={current === item.href ? 'page' : undefined}>{item.label}</a>
+      ))}
+    </nav>
+
+    <a class="header__cta" href="tel:+85294310299"><span>TEL</span> 9431 0299</a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      data-menu-toggle
+      aria-expanded="false"
+      aria-label="開啟導覽選單"
+      aria-controls="mobile-nav"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-panel" id="mobile-nav" data-mobile-panel>
+    <nav class="container mobile-panel__inner" aria-label="行動版導覽">
+      {nav.map((item, i) => (
+        <a href={item.href} aria-current={current === item.href ? 'page' : undefined}>
+          {item.label}<span>0{i + 1}</span>
+        </a>
+      ))}
+      <a class="btn btn--gold" href="tel:+85294310299">致電 9431 0299 <span class="arrow">→</span></a>
+    </nav>
+  </div>
+</header>

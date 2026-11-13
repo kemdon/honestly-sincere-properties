@@ -1,0 +1,110 @@
+---
+import '../styles.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = '',
+  description = '真誠地產代理有限公司 — 立足香港西營盤第三街的地產代理，提供住宅買賣、租賃、業主放盤及物業諮詢服務。',
+  path = '/',
+  ogImage = '/images/hero-street.webp',
+  noindex = false,
+} = Astro.props;
+
+const brand = '真誠地產代理有限公司 · HONESTLY SINCERE PROPERTIES LIMITED';
+const documentTitle = title ? `${title} | ${brand}` : brand;
+const canonical = Astro.site ? new URL(path, Astro.site).toString() : '';
+const absoluteOg = ogImage && Astro.site ? new URL(ogImage, Astro.site).toString() : ogImage;
+---
+
+<!doctype html>
+<html lang="zh-HK">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <meta name="theme-color" content="#10261f" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{documentTitle}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={documentTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content={brand} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    {absoluteOg && <meta property="og:image" content={absoluteOg} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={documentTitle} />
+    <meta name="twitter:description" content={description} />
+    <noscript>
+      <style>.reveal { opacity: 1 !important; transform: none !important; }</style>
+    </noscript>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'RealEstateAgent',
+      name: '真誠地產代理有限公司',
+      alternateName: 'HONESTLY SINCERE PROPERTIES LIMITED',
+      telephone: '+852-9431-0299',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '西營盤第三街83號康和花園地下6號鋪',
+        addressLocality: '香港',
+        addressRegion: '中西區',
+        addressCountry: 'HK',
+      },
+      areaServed: '香港西營盤及港島西區',
+    })} />
+  </head>
+  <body>
+    <slot />
+
+    <script>
+      // Mobile navigation
+      const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+      const panel = document.querySelector<HTMLElement>('[data-mobile-panel]');
+      if (toggle && panel) {
+        toggle.addEventListener('click', () => {
+          const open = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!open));
+          toggle.setAttribute('aria-label', open ? '開啟導覽選單' : '關閉導覽選單');
+          if (open) panel.removeAttribute('open');
+          else panel.setAttribute('open', '');
+        });
+        panel.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            toggle.setAttribute('aria-expanded', 'false');
+            panel.removeAttribute('open');
+          });
+        });
+      }
+
+      // Quiet scroll reveals
+      const targets = document.querySelectorAll<HTMLElement>('.reveal');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        targets.forEach((el) => observer.observe(el));
+      } else {
+        targets.forEach((el) => el.classList.add('is-visible'));
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  /* No script: content must remain readable. */
+</style>

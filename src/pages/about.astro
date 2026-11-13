@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const facts = [
+  { label: '公司中文名稱', value: '真誠地產代理有限公司' },
+  { label: 'Company name', value: 'HONESTLY SINCERE PROPERTIES LIMITED' },
+  { label: '地產代理牌照號碼', value: 'C-094108-A000' },
+  { label: '地址', value: '香港西營盤第三街 83 號康和花園地下 6 號鋪', note: 'Shop 6 on Ground Floor, Goodwill Garden, No. 83 Third Street, Sai Ying Pun, Hong Kong' },
+  { label: '公司電話', value: '9431 0299' },
+  { label: '業務性質', value: '地產代理 · 住宅買賣、租賃、業主放盤及物業諮詢' },
+];
+
+const values = [
+  { title: '資料如實', body: '能確認的資料清楚列出，未能確認的不會當成事實陳述。物業詳情以正式文件與實地視察為準。' },
+  { title: '牌照公開', body: '公司牌照 C-094108-A000、代理牌照 E-458976 均列於網站，查詢時可直接核對。' },
+  { title: '找得到人', body: '門市就在第三街，電話直接接通。有疑問、要改約、想再問一次，都可以直接找我們。' },
+];
+---
+
+<Layout
+  title="關於我們 · 真誠地產代理有限公司"
+  description="真誠地產代理有限公司（HONESTLY SINCERE PROPERTIES LIMITED）的公司資料、地產代理牌照 C-094108-A000、代理陳小玲 Olivia Chan 牌照 E-458976，以及位於西營盤第三街的門市地址。"
+  path="/about"
+  ogImage="/images/door-detail.webp"
+>
+  <SiteHeader current="/about" />
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__media">
+        <img src="/images/door-detail.webp" alt="" width="1728" height="2304" decoding="async" />
+      </div>
+      <span class="page-hero__ghost" aria-hidden="true">04</span>
+      <div class="container page-hero__inner">
+        <p class="breadcrumb"><a href="/">首頁</a>　/　關於我們</p>
+        <span class="eyebrow eyebrow--light" style="margin-top:26px;">About us</span>
+        <h1>關於真誠地產</h1>
+        <p>一間設於西營盤第三街的地產代理公司。名字裡的「真誠」，對我們來說是很具體的事：資料如實、牌照公開、電話有人聽。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split split--even">
+        <div class="reveal">
+          <span class="eyebrow">Who we are</span>
+          <div class="prose-block" style="margin-top:26px;">
+            <h2>在第三街，做地區的事</h2>
+            <p><strong>真誠地產代理有限公司</strong>（HONESTLY SINCERE PROPERTIES LIMITED）的門市位於香港西營盤第三街 83 號康和花園地下 6 號鋪，主要提供住宅買賣、租賃、業主放盤及物業諮詢服務。</p>
+            <p>我們是一間地區代理公司，服務範圍集中在西營盤及鄰近港島西區。店面開在街上，來找我們的，很多是住在附近、想換樓、想把單位出租，或剛搬來這區想找個落腳點的人。</p>
+            <p>買賣與租賃牽涉不少文件與決定。我們能做的，是把知道的說清楚、把不確定的講明白，並在需要時提醒你找律師、銀行或其他專業人士確認。</p>
+          </div>
+        </div>
+        <figure class="figure figure--wide reveal" style="margin:0;">
+          <img src="/images/street-shops.webp" alt="西營盤舊唐樓轉角的綠色鐵窗、條紋遮陽篷與關上的捲閘" width="2496" height="1664" loading="lazy" decoding="async" />
+          <figcaption class="figure__caption">西營盤街區 · 舊舖與唐樓</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section--warm">
+      <div class="container">
+        <div style="margin-bottom:48px;">
+          <div class="section-head__top"><span class="num">01</span><span class="eyebrow">Company information</span></div>
+          <h2 class="section-title" style="margin-top:20px;">公司資料</h2>
+          <p class="lede" style="margin-top:16px;">以下資料按客戶提供內容列示，歡迎查證。</p>
+        </div>
+        <dl class="detail-list">
+          {facts.map((item) => (
+            <div class="detail-list__row">
+              <dt>{item.label}</dt>
+              <dd>{item.value}{item.note && <small>{item.note}</small>}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split split--even">
+        <figure class="figure figure--portrait reveal" style="margin:0;">
+          <img src="/images/tower-facade.webp" alt="香港舊式住宅大廈外立面，密集窗戶與窗口式冷氣機" width="1728" height="2304" loading="lazy" decoding="async" />
+        </figure>
+        <div class="reveal">
+          <div class="section-head__top"><span class="num">02</span><span class="eyebrow">Your agent</span></div>
+          <h2 class="section-title" style="margin:22px 0 16px;">與你聯絡的人</h2>
+          <p class="lede">查詢、睇樓與文件往來，都可以直接與代理聯絡。</p>
+          <div class="agent-card" style="margin-top:32px;">
+            <span class="agent-card__licence">代理牌照 E-458976</span>
+            <h3>陳小玲</h3>
+            <p class="agent-card__en">Olivia Chan</p>
+            <dl style="margin:0;">
+              <div class="agent-card__line"><dt>聯絡電話</dt><dd><a href="tel:+85296856656" style="font-family:var(--font-serif); font-size:1.15rem;">9685 6656</a></dd></div>
+              <div class="agent-card__line"><dt>代理牌照</dt><dd>E-458976</dd></div>
+              <div class="agent-card__line"><dt>公司電話</dt><dd><a href="tel:+85294310299" style="font-family:var(--font-serif); font-size:1.15rem;">9431 0299</a></dd></div>
+              <div class="agent-card__line"><dt>門市</dt><dd>西營盤第三街 83 號康和花園地下 6 號鋪</dd></div>
+            </dl>
+            <a class="btn btn--ink" href="tel:+85296856656">致電陳小玲 <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--ink">
+      <div class="container">
+        <div style="margin-bottom:52px;">
+          <div class="section-head__top"><span class="num">03</span><span class="eyebrow eyebrow--light">What sincerity means here</span></div>
+          <h2 class="section-title" style="margin-top:20px;">「真誠」不是口號，是做法</h2>
+        </div>
+        <div class="value-grid">
+          {values.map((item, i) => (
+            <div class="value-item reveal" style="border-color:var(--line-light);">
+              <span class="value-item__num" style="color:var(--brass-light);">0{i + 1}</span>
+              <h3 style="color:var(--paper);">{item.title}</h3>
+              <p style="color:rgba(246,243,236,0.66);">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container container--narrow">
+        <span class="eyebrow">A note on this site</span>
+        <h2 class="section-title" style="margin:20px 0 18px; font-size:clamp(1.5rem,2.2vw,2rem);">關於網站內容</h2>
+        <p class="lede">本站所列公司名稱、牌照號碼、代理資料、電話與地址均由客戶提供；其餘文字為服務與地區的一般說明。網站上的街區與室內影像屬氛圍示意圖片，並非特定樓盤、成交個案或本公司現場實景，亦不構成任何物業資料保證。物業詳情、價錢與可供參觀時間，請以正式文件及電話查詢為準。</p>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-band__inner">
+        <div>
+          <span class="eyebrow eyebrow--light">Come and talk</span>
+          <h2>路過第三街，歡迎進來坐</h2>
+          <p>不一定要有明確目標才來找我們。想問區內情況、想了解放盤做法，都可以先打通電話。</p>
+        </div>
+        <div class="cta-band__actions">
+          <a class="btn btn--gold" href="tel:+85294310299">致電 9431 0299 <span class="arrow">→</span></a>
+          <a class="btn btn--outline" href="/contact">查看聯絡資料</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</Layout>
